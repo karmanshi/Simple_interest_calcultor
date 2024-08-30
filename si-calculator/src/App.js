@@ -6,7 +6,7 @@ function App() {
   const [principal, setPrincipal] = useState('')
   const [rate, setRate] = useState('')
   const [time, setTime] = useState('')
-  const [output,setOutput] = useState('')
+  const [output, setOutput] = useState('')
 
   const handleReset = () => {
     setOutput('')
@@ -15,20 +15,19 @@ function App() {
     setTime('')
   }
 
-  const handleCalculate =()=>{
-    if(principal == ''){
-      alert ("Please Enter the Principal")
+  const handleCalculate = () => {
+    if (principal == '') {
+      alert("Please Enter the Principal")
     }
-    else if(rate == ''){
+    else if (rate == '') {
       alert('Please Enter the Rate')
     }
-    else if(time == ''){
+    else if (time == '') {
       alert('Please Enter the Time')
     }
-    else{
-      let total = (parseFloat(principal)* parseFloat(rate) * parseFloat(time))/100
-
-    setOutput(total.toFixed(2))
+    else {
+      let total = (parseFloat(principal) * parseFloat(rate) * parseFloat(time)) / 100
+      setOutput(total.toFixed(2))
     }
   }
 
@@ -51,7 +50,7 @@ function App() {
           <input
             type='text'
             value={principal}
-            onChange={(e) => { setPrincipal(e.target.value) }}
+            onChange={(e) => { isNaN(e.target.value) ? alert('Enter numeric value') : setPrincipal(e.target.value) }}
             className="outline-none w-full py-2 px-3"
             placeholder='₹ Prinicpal Amount'
           />
@@ -60,7 +59,7 @@ function App() {
           <input
             type='text'
             value={rate}
-            onChange={(e) => { setRate(e.target.value) }}
+            onChange={(e) => { isNaN(e.target.value) ? alert('Enter numeric value') : setRate(e.target.value) }}
             className="outline-none w-full py-2 px-3"
             placeholder='Rate of Interest (p.a.)%'
           />
@@ -69,7 +68,7 @@ function App() {
           <input
             type='text'
             value={time}
-            onChange={(e) => { setTime(e.target.value) }}
+            onChange={(e) => { isNaN(e.target.value) ? alert('Enter numeric value') : setTime(e.target.value) }}
             className="outline-none w-full py-2 px-3"
             placeholder='Time Period (Yr)'
           />
